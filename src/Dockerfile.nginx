@@ -23,4 +23,4 @@ COPY nginx.config /etc/nginx/nginx.conf
 
 RUN service nginx restart
 
-RUN nginx
+CMD nginx
