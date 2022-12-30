@@ -1,0 +1,4 @@
+service mariadb start
+mysql -u root -p$MYSQL_ROOT_PASSWORD -e  "ALTER USER 'root'@'localhost' IDENTIFIED BY '"$MYSQL_ROOT_PASSWORD"'; flush privileges;"
+mysql -u root -p$MYSQL_ROOT_PASSWORD -e"CREATE DATABASE $MYSQL_DATABASE DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;CREATE USER $MYSQL_USER@'%' IDENTIFIED BY '"$MYSQL_PASSWORD"';GRANT ALL PRIVILEGES  ON  $MYSQL_DATABASE.* TO 'user'@'%';FLUSH PRIVILEGES;"
+tail -f /dev/null

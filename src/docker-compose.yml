@@ -1,0 +1,34 @@
+version: '3'
+
+volumes:
+  wb_data:
+  sql_data:
+
+services:
+  mariadb:
+    build: mariadb
+    volumes:
+      - sql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: value
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    ports:
+      - 3306:3306
+  wordpress:
+    build: wordpress
+    volumes:
+      - wb_data:/wordpress
+    ports:
+      - 9000:9000
+    links :
+      - mariadb
+  nginx:
+    build: nginx
+    volumes:
+      - wb_data:/wordpress
+    ports:
+      - 443:443
+    links : 
+      - wordpress
