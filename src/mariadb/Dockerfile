@@ -1,15 +1,14 @@
-FROM debian
+FROM debian:buster
 
-RUN apt update -y
+RUN apt update -y && apt install mariadb-server  -y
 
-RUN apt upgrade -y
+COPY 50-server.cnf /etc/mysql/mariadb.conf.d/
 
-RUN apt install mariadb-server  -y
+COPY setup_db.sh /usr/bin/setup
 
-COPY 50-server.cnf /etc/mysql/mariadb.conf.d
+RUN chmod +x /usr/bin/setup
 
-COPY setup_db.sh /setup_db.sh
+ENTRYPOINT [ "setup" ]
 
-RUN chmod 777 setup_db.sh
+CMD ["mysqld"]
 
-CMD bash setup_db.sh

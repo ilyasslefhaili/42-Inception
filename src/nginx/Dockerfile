@@ -1,7 +1,7 @@
-FROM debian:11.6
+FROM debian:buster
 RUN apt update
 RUN apt upgrade
-RUN apt install  -y nginx=1.18.0-6.1+deb11u3  -V
+RUN apt install  -y nginx
 RUN apt install -y openssl
 RUN mkdir /etc/nginx/certs
 RUN openssl req -x509 \

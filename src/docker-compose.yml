@@ -2,22 +2,21 @@ version: '3'
 
 volumes:
   wb_data:
-  sql_data:
+  sql_data2:
 
 services:
   mariadb:
     build: mariadb
     volumes:
-      - sql_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: value
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: user
-      MYSQL_PASSWORD: pass
+      - sql_data2:/var/lib/mysql
+    env_file:
+      - .env
     ports:
       - 3306:3306
   wordpress:
     build: wordpress
+    env_file:
+      - .env
     volumes:
       - wb_data:/wordpress
     ports:
