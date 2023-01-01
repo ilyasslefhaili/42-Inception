@@ -5,4 +5,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN mkdir wordpress && cd wordpress && wp core download --allow-root
 COPY wp-config.php /wordpress/wp-config.php
 COPY www.conf /etc/php/7.3/fpm/pool.d/www.conf
-CMD php-fpm7.3 -F -R
+COPY setup_wp.sh setup_wp.sh
+RUN chmod +x setup_wp.sh
+ENTRYPOINT [ "bash" , "setup_wp.sh"]
+CMD ["php-fpm7.3", "-F", "-R"] 

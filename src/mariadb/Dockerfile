@@ -4,11 +4,11 @@ RUN apt update -y && apt install mariadb-server  -y
 
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d/
 
-COPY setup_db.sh /usr/bin/setup
+COPY setup_db.sh setup_db.sh
 
-RUN chmod +x /usr/bin/setup
+RUN chmod +x setup_db.sh
 
-ENTRYPOINT [ "setup" ]
+ENTRYPOINT [ "bash", "setup_db.sh" ]
 
 CMD ["mysqld"]
 

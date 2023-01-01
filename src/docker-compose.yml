@@ -23,6 +23,8 @@ services:
       - 9000:9000
     links :
       - mariadb
+    depends_on:
+      - mariadb
   nginx:
     build: nginx
     volumes:
