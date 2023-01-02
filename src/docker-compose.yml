@@ -21,9 +21,9 @@ services:
       - wb_data:/wordpress
     ports:
       - 9000:9000
-    links :
+    depends_on :
       - mariadb
-    depends_on:
+    links :
       - mariadb
   nginx:
     build: nginx
@@ -31,5 +31,7 @@ services:
       - wb_data:/wordpress
     ports:
       - 443:443
+    depends_on :
+      - wordpress
     links : 
       - wordpress

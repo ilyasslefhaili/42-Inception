@@ -13,4 +13,4 @@ RUN openssl req -x509 \
 RUN mv key.pem cert.pem /etc/nginx/certs
 RUN mkdir /wordpress
 COPY nginx.config /etc/nginx/nginx.conf
-CMD tail -f /dev/null
+CMD ["nginx", "-g", "daemon off;"]
