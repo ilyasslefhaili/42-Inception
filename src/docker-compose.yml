@@ -1,14 +1,12 @@
 version: '3'
 
-volumes:
-  wb_data:
-  sql_data2:
-
 services:
   mariadb:
     build: mariadb
     volumes:
-      - sql_data2:/var/lib/mysql
+      - type : bind
+        source : /var/lib/mysql
+        target : /home/ilefhail/data/db_data
     env_file:
       - .env
     ports:
@@ -18,7 +16,9 @@ services:
     env_file:
       - .env
     volumes:
-      - wb_data:/wordpress
+      - type: bind
+        source: /wordpress
+        target: /home/ilefhail/data/wp_data
     ports:
       - 9000:9000
     depends_on :
@@ -27,8 +27,6 @@ services:
       - mariadb
   nginx:
     build: nginx
-    volumes:
-      - wb_data:/wordpress
     ports:
       - 443:443
     depends_on :
