@@ -18,13 +18,13 @@ volumes:
 
 services:
   mariadb:
-    build: mariadb
+    build: ./requirements/mariadb
     volumes:
       - db_data:/var/lib/mysql
     env_file:
       - .env
   wordpress:
-    build: wordpress
+    build: ./requirements/wordpress
     env_file:
       - .env
     volumes:
@@ -34,7 +34,7 @@ services:
     links :
       - mariadb
   nginx:
-    build: nginx
+    build: ./requirements/nginx
     ports:
       - 443:443
     volumes :

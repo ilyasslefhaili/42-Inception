@@ -1,7 +1,7 @@
 all: 
 	sudo chmod 666 /var/run/docker.sock
-	bash ./src/tools/create_dr.sh
-	docker compose -f  ./src/docker-compose.yml  up --build
+	bash ./srcs/requirements/tools/create_dr.sh
+	docker compose -f  ./srcs/docker-compose.yml  up --build
 clean:
-	docker compose -f ./src/docker-compose.yml down
+	docker compose -f ./srcs/docker-compose.yml down
 re : clean all
