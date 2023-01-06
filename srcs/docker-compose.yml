@@ -31,8 +31,6 @@ services:
       - wp_data:/wordpress
     depends_on :
       - mariadb
-    links :
-      - mariadb
   nginx:
     build: ./requirements/nginx
     ports:
@@ -40,6 +38,4 @@ services:
     volumes :
       - wp_data:/wordpress
     depends_on :
-      - wordpress
-    links : 
       - wordpress
