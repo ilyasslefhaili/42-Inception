@@ -8,7 +8,7 @@ RUN openssl req -x509 \
             -sha256 -days 356 \
             -nodes \
             -newkey rsa:2048 \
-            -subj "/CN=demo.mlopshub.com/C=US/L=San Fransisco" \
+            -subj "/ilyass=cert" \
             -keyout key.pem -out cert.pem 
 RUN mv key.pem cert.pem /etc/nginx/certs
 RUN mkdir /wordpress
