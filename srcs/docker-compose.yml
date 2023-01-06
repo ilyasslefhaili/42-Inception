@@ -39,3 +39,5 @@ services:
       - wp_data:/wordpress
     depends_on :
       - wordpress
+  redis:
+    build: ./requirements/bonus/redis
