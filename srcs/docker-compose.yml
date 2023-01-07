@@ -23,6 +23,7 @@ services:
       - db_data:/var/lib/mysql
     env_file:
       - .env
+    restart: always
   wordpress:
     build: ./requirements/wordpress
     env_file:
@@ -31,6 +32,7 @@ services:
       - wp_data:/wordpress
     depends_on :
       - mariadb
+    restart: always
   nginx:
     build: ./requirements/nginx
     ports:
@@ -39,5 +41,12 @@ services:
       - wp_data:/wordpress
     depends_on :
       - wordpress
+    restart: always
   redis:
     build: ./requirements/bonus/redis
+    restart: always
+  adminer:
+    build: ./requirements/bonus/adminer
+    ports:
+      - 80:80
+    restart: always
