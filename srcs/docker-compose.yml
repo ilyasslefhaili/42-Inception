@@ -50,3 +50,9 @@ services:
     ports:
       - 80:80
     restart: always
+  ctop:
+    build: ./requirements/bonus/ctop-service
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
