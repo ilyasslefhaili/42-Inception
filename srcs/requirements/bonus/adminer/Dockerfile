@@ -1,5 +1,5 @@
 FROM debian:buster
-RUN apt update && apt install  -y nginx && apt install -y adminer && apt install -y php php-fpm
+RUN apt update -y && apt install -y nginx && apt install -y adminer && apt install -y php php-fpm
 RUN mkdir /var/run/php
 COPY ./tools/setup.sh setup.sh
 RUN chmod +x setup.sh

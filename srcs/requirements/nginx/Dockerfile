@@ -1,6 +1,5 @@
 FROM debian:buster
-RUN apt update
-RUN apt upgrade
+RUN apt update -y
 RUN apt install  -y nginx
 RUN apt install -y openssl
 RUN mkdir /etc/nginx/certs

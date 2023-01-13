@@ -60,3 +60,5 @@ services:
     build: ./requirements/bonus/portfolio-website
     ports:
       - 3000:80
+networks:
+  default:
