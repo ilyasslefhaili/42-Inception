@@ -8,4 +8,4 @@ RUN echo "listen = 9000" >> /etc/php/7.3/fpm/pool.d/www.conf
 COPY tools/setup_wp.sh setup_wp.sh
 RUN chmod +x setup_wp.sh
 ENTRYPOINT [ "bash" , "setup_wp.sh"]
-CMD ["php-fpm7.3", "-F", "-R"] 
+CMD ["php-fpm7.3", "-F"]

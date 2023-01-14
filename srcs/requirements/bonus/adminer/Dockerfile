@@ -5,4 +5,4 @@ COPY ./tools/setup.sh setup.sh
 RUN chmod +x setup.sh
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 ENTRYPOINT ["bash", "setup.sh"]
-CMD ["php-fpm7.3", "-F", "-R"] 
+CMD ["php-fpm7.3", "-F"] 
