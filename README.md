@@ -12,6 +12,6 @@ I used Docker and Docker-compose to set up this containers :
 - Docker
 - Docker-compose
 # RUN
-```make```
-https://localhost:443 : For wordpress website.
-http://localhost:80 : for static website.
+- Run ```make```
+- https://localhost:443 : For wordpress website.
+- http://localhost:80 : for static website.
