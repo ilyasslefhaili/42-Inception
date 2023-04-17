@@ -14,4 +14,4 @@ I used Docker and Docker-compose to set up this containers :
 # RUN
 - Run ```make```
 - https://localhost:443 : For wordpress website.
-- http://localhost:80 : for static website.
+- http://localhost:80 : For static website.
