@@ -11,6 +11,12 @@ I used Docker and Docker-compose to set up this containers :
 # Tech & Tools
 - Docker
 - Docker-compose
+- Mariadb
+- Wordpress
+- php-fpm
+- Nginx
+- Adminer
+- Redis
 # RUN
 - Run ```make```
 - https://localhost:443 : For wordpress website.
